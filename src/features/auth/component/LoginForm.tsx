@@ -27,8 +27,6 @@ export default function LoginForm({ postLoginForm, loading }: LoginFormProps) {
         <div className="flex-1 flex flex-col font-bold gap-4 items-center">
             <h1 className="text-primary text-4xl mb-4">LOGIN</h1>
 
-           
-
             <InputBorderlessFocus
                 type="text" className="md:w-[80%] w-full"
                 placeholder="username"
