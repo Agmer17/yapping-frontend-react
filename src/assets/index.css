@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* THEME DEFINITION */
+@plugin "daisyui/theme" {
+  name: "neobrutalism";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+
+  /* Base (White, clean) */
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(97% 0 0);
+  --color-base-300: oklch(90% 0 0);
+  --color-base-content: oklch(0% 0 0); /* Hitam */
+
+  /* Brand Colors */
+  --color-primary: oklch(68% 0.19 35);   /* Orange */
+  --color-primary-content: oklch(0% 0 0);
+
+  --color-secondary: oklch(88% 0.15 95); /* Kuning */
+  --color-secondary-content: oklch(0% 0 0);
+
+  --color-accent: oklch(72% 0.12 195);   /* Teal / Cyan */
+  --color-accent-content: oklch(0% 0 0);
+
+  /* Neutral */
+  --color-neutral: oklch(0% 0 0);        /* Hitam solid */
+  --color-neutral-content: oklch(100% 0 0);
+
+  /* State Colors */
+  --color-info: oklch(60% 0.18 250);
+  --color-info-content: oklch(0% 0 0);
+
+  --color-success: oklch(65% 0.18 155);
+  --color-success-content: oklch(0% 0 0);
+
+  --color-warning: oklch(75% 0.18 75);
+  --color-warning-content: oklch(0% 0 0);
+
+  --color-error: oklch(62% 0.24 25);
+  --color-error-content: oklch(100% 0 0);
+
+  /* Neo Brutalism DNA */
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+  --border: 3px;
+  --depth: 3;
+  --noise: 0;
+  
+  /* Typography */
+  --font-family: "Satoshi", "Inter", "Manrope", sans-serif;
+  --text-base: 1rem;         /* 16px */
+  --text-lg: 1.125rem;       /* 18px */
+  --text-xl: 1.25rem;        /* 20px */
+  --text-2xl: 1.5rem;        /* 24px */
+  --text-3xl: 2rem;          /* 32px */
+  --text-4xl: 3rem;          /* 48px */
+
+  --font-weight-regular: 500;
+  --font-weight-bold: 800;
+}
+
+/* OVERRIDES & CUSTOM COMPONENTS */
+@layer components {
+
+  /* GLOBAL FONT APPLY */
+  html, body, .btn, .input, .card, .textarea, .select {
+    font-family: var(--font-family) !important;
+    font-weight: var(--font-weight-regular);
+  }
+
+  /* Heading Bold Brutalism */
+  h1, h2, h3, h4, h5 {
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+  
+  /* BUTTONS */
+  .btn {
+    border: 3px solid oklch(0% 0 0) !important;
+    box-shadow: 4px 4px 0px oklch(0% 0 0) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    transition: all 0.1s ease !important;
+  }
+
+  .btn:hover {
+    transform: translate(2px, 2px) !important;
+    box-shadow: 2px 2px 0px oklch(0% 0 0) !important;
+  }
+
+  .btn:active {
+    transform: translate(4px, 4px) !important;
+    box-shadow: 0px 0px 0px oklch(0% 0 0) !important;
+  }
+
+  /* CARDS */
+  .card {
+    border: 3px solid oklch(0% 0 0) !important;
+    box-shadow: 6px 6px 0px oklch(0% 0 0) !important;
+  }
+
+  /* INPUTS */
+  .input,
+  .textarea,
+  .select {
+    border: 2px solid oklch(0% 0 0) !important;
+    box-shadow: 3px 3px 0px oklch(0% 0 0) !important;
+  }
+
+  .input:focus,
+  .textarea:focus,
+  .select:focus {
+    outline: 3px solid oklch(0% 0 0) !important;
+    outline-offset: 2px;
+  }
+
+  /* BADGE */
+  .badge {
+    border: 2px solid oklch(0% 0 0) !important;
+    font-weight: 700 !important;
+  }
+
+  /* ALERT */
+  .alert {
+    border: 3px solid oklch(0% 0 0) !important;
+    box-shadow: 5px 5px 0px oklch(0% 0 0) !important;
+  }
+
+  /* MODAL */
+  .modal-box {
+    border: 3px solid oklch(0% 0 0) !important;
+    box-shadow: 8px 8px 0px oklch(0% 0 0) !important;
+  }
+
+  /* DROPDOWN */
+  .dropdown-content {
+    border: 3px solid oklch(0% 0 0) !important;
+    box-shadow: 6px 6px 0px oklch(0% 0 0) !important;
+  }
+
+  /* TABS */
+  .tabs-bordered .tab {
+    border: 2px solid oklch(0% 0 0) !important;
+  }
+  .tab-active {
+    font-weight: 800 !important;
+  }
+
+  /* AVATAR */
+  .avatar {
+    border: 3px solid oklch(0% 0 0) !important;
+    box-shadow: 4px 4px 0px oklch(0% 0 0) !important;
+  }
+
+  /* PROGRESS */
+  .progress {
+    border: 2px solid oklch(0% 0 0) !important;
+  }
+
+  /* UTILITIES */
+  .neo-shadow {
+    box-shadow: 6px 6px 0px oklch(0% 0 0);
+    border: 3px solid oklch(0% 0 0);
+  }
+  .neo-shadow-sm {
+    box-shadow: 4px 4px 0px oklch(0% 0 0);
+    border: 2px solid oklch(0% 0 0);
+  }
+  .neo-shadow-lg {
+    box-shadow: 8px 8px 0px oklch(0% 0 0);
+    border: 4px solid oklch(0% 0 0);
+  }
+}
