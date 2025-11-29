@@ -19,7 +19,6 @@ export default function SignUpForm({ postSignUp, loading }: SignUpProps) {
     const handleSubmit = async () => {
         let data = {username,email,fullName,password}
         await postSignUp(data)
-
     }
 
     return (

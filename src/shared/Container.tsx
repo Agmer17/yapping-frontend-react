@@ -1,13 +1,4 @@
-import React, { type ReactNode, type HTMLAttributes } from "react";
-
-
-/** Neo‑Brutalism Container (TypeScript)
-* - Pure TSX
-* - Uses raw brutalist border + shadow from your config
-* - No width/height forced
-*/
-
-
+import { type ReactNode, type HTMLAttributes } from "react";
 export interface NeoContainerProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
     className?: string;

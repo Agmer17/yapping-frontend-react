@@ -1,19 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrimaryButton, SecondaryButton } from "../../../shared/Button"
 import { InputBorderlessFocus } from "../../../shared/Input"
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import type { LoginRequest, SuccessResponse } from "../types/authTypes";
 
 interface LoginFormProps {
-  postLoginForm: (loginData: LoginRequest) => Promise<SuccessResponse | undefined>
-  loading: boolean;
+    postLoginForm: (loginData: LoginRequest) => Promise<SuccessResponse | undefined>
+    loading: boolean;
+    sucess: SuccessResponse | null
 }
 
 
-export default function LoginForm({ postLoginForm, loading }: LoginFormProps) {
+export default function LoginForm({ postLoginForm, loading, sucess }: LoginFormProps) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate()
 
 
     const handleSubmit = async () => {
@@ -22,6 +24,12 @@ export default function LoginForm({ postLoginForm, loading }: LoginFormProps) {
             password: password
         })
     }
+
+    useEffect(() => {
+        if (sucess) {
+            navigate("/");
+        }
+    }, [sucess]);
 
     return (
         <div className="flex-1 flex flex-col font-bold gap-4 items-center">
@@ -54,8 +62,6 @@ export default function LoginForm({ postLoginForm, loading }: LoginFormProps) {
                     Daftar
                 </SecondaryButton>
             </Link>
-
-
         </div>
     )
 }

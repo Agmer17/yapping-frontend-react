@@ -4,12 +4,14 @@ import {
   type LoginRequest,
   type SuccessResponse
 } from "./../types/authTypes"
+import { useAuth } from "../../../context/AuthContext";
 
 
 export function useLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | null>(null);
   const [successData, setSuccessData] = useState<SuccessResponse | null>(null);
+  const {login} = useAuth()
 
   async function postLoginForm(loginData: LoginRequest) {
     setLoading(true);
@@ -34,7 +36,10 @@ export function useLogin() {
       }
 
       const json: SuccessResponse = await res.json();
+      
       setSuccessData(json);
+      login(json.accessToken, json.id)
+
 
       return json;
 
